@@ -83,8 +83,14 @@ function appendBlogPostSummaryElements(blogPostMetadatas) {
     const titleElement = blogPostElement.querySelector(".blog-post-summary-title");
     titleElement.textContent = blogPostMetadata.title || "(Untitled)";
 
+    const timestampElement = blogPostElement.querySelector(".blog-post-summary-timestamp");
+    const timestampDate = new Date(blogPostMetadata.timestamp);
+    timestampElement.textContent = `${timestampDate.toLocaleDateString(undefined, { month: "short" })} ${timestampDate.toLocaleDateString(undefined, {
+      day: "2-digit",
+    })}`;
+
     const categoryElement = blogPostElement.querySelector(".blog-post-summary-category");
-    categoryElement.category = blogPostMetadata.category || "General";
+    categoryElement.textContent = blogPostMetadata.category || "General";
 
     const tagsElement = blogPostElement.querySelector(".blog-post-summary-tags");
 
@@ -102,7 +108,6 @@ function appendBlogPostSummaryElements(blogPostMetadatas) {
     blogPostSummaryContainer.appendChild(blogPostElement);
   });
 }
-
 
 (async () => {
   // Retrieve all Blog Posts

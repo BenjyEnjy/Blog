@@ -8,31 +8,37 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <nav></nav>
-    <main>
-      <ul id="blog-post-summaries">
-        <!-- #blog-post-summary -->
-      </ul>
+    <div id="wrapper">
+      <header>
+        <h1 id="page-title">Benj.site</h1>
+      </header>
+      <nav></nav>
+      <main>
+        <ul id="blog-post-summaries">
+          <!-- #blog-post-summary -->
+        </ul>
 
-      <!-- Template -->
-      <template id="blog-post-summary">
-        <li class="blog-post-summary">
-          <a class="blog-post-summary-link">
-            <h2 class="blog-post-summary-title"></h2>
-            <span class="blog-post-summary-category"></span>
-            <ul class="blog-post-summary-tags">
-              <!-- #blog-post-summary-tag -->
-            </ul>
-          </a>
-        </li>
-      </template>
+        <!-- Template -->
+        <template id="blog-post-summary">
+          <li class="blog-post-summary">
+            <a class="blog-post-summary-link">
+              <h2 class="blog-post-summary-title"></h2>
+              <span class="blog-post-summary-category"></span>
+              <ul class="blog-post-summary-tags">
+                <!-- #blog-post-summary-tag -->
+              </ul>
+              <span class="blog-post-summary-timestamp"></span>
+            </a>
+          </li>
+        </template>
 
-      <!-- Template -->
-      <template id="blog-post-summary-tag">
-        <span class="blog-post-summary-tag">
-          <span class="blog-post-summary-tag-name"></span>
-        </span>
-      </template>
-    </main>
+        <!-- Template -->
+        <template id="blog-post-summary-tag">
+          <span class="blog-post-summary-tag">
+            <span class="blog-post-summary-tag-name"></span>
+          </span>
+        </template>
+      </main>
+    </div>
   </body>
 </html>

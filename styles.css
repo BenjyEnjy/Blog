@@ -1,8 +1,32 @@
 body {
+  display: flex;
   background-color: #171717;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px;
+  font-size: 18px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 70em;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 2em;
+}
+
+header {
+  margin-bottom: 3em;
+  padding: 0.4em;
+}
+
+header #page-title {
+  font-size: 3em;
+  font-weight: normal;
+  margin: 0;
+  color: #ddd;
 }
 
 #blog-post-summaries {
@@ -15,9 +39,6 @@ body {
 .blog-post-summary {
   display: flex;
   align-items: center;
-  padding: 0.25em;
-  padding-bottom: 0.5em;
-  margin: 0.1em;
   flex-grow: 1;
   border-bottom: solid 1px #555;
 }
@@ -28,6 +49,9 @@ body {
   text-decoration: none;
   align-items: center;
   flex-grow: 1;
+  padding: 0.5em;
+  padding-bottom: 0.5em;
+  margin: 0.1em;
 }
 
 .blog-post-summary .blog-post-summary-link:hover {
@@ -37,7 +61,25 @@ body {
 
 .blog-post-summary .blog-post-summary-link .blog-post-summary-title {
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.3em;
   margin: 0;
   flex-grow: 1;
+}
+
+.blog-post-summary .blog-post-summary-link .blog-post-summary-category {
+  margin-right: 2em;
+  border: 1px solid #555;
+  padding: 0.3em 0.6em;
+  font-size: 0.9em;
+}
+
+.blog-post-summary .blog-post-summary-link .blog-post-summary-tags {
+  padding: 0;
+  margin-right: 2em;
+}
+
+.blog-post-summary .blog-post-summary-link .blog-post-summary-tags .blog-post-summary-tag   {
+  border: 1px solid #555;
+  padding: 0.3em 0.6em;
+  font-size: 0.9em;
 }
