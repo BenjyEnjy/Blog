@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Benj</title>
+    <link href="styles.css" rel="stylesheet" />
     <script src="index.js"></script>
-</head>
-<body>
-    <nav>
-
-    </nav>
+  </head>
+  <body>
+    <nav></nav>
     <main>
-        <div id="blogs">
+      <ul id="blog-post-summaries">
+        <!-- #blog-post-summary -->
+      </ul>
 
-        </div>
+      <!-- Template -->
+      <template id="blog-post-summary">
+        <li class="blog-post-summary">
+          <a class="blog-post-summary-link">
+            <h2 class="blog-post-summary-title"></h2>
+            <span class="blog-post-summary-category"></span>
+            <ul class="blog-post-summary-tags">
+              <!-- #blog-post-summary-tag -->
+            </ul>
+          </a>
+        </li>
+      </template>
+
+      <!-- Template -->
+      <template id="blog-post-summary-tag">
+        <span class="blog-post-summary-tag">
+          <span class="blog-post-summary-tag-name"></span>
+        </span>
+      </template>
     </main>
-</body>
+  </body>
 </html>
