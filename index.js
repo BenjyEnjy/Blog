@@ -6,7 +6,7 @@
 async function retrieveBlogPost(id) {
   let response;
   try {
-    response = await fetch(`/posts/${id}.json`);
+    response = await fetch(`/blog/posts/${id}.json`);
   } catch (error) {
     throw new Error(
       `Failed to initiate retrieval of Blog Post '${id}': ${error}`
@@ -38,12 +38,13 @@ async function retrieveBlogPost(id) {
  * @returns
  */
 async function retrieveAllBlogPosts() {
-  const BATCH_SIZE = 25;
+  const BATCH_SIZE = 15;
+  const MAX_POSTS_EVER = 1000;
   let blogPosts = [];
 
   for (
     let startingBlogPostId = 1;
-    startingBlogPostId < 1000;
+    startingBlogPostId < MAX_POSTS_EVER;
     startingBlogPostId += BATCH_SIZE
   ) {
     const results = await Promise.allSettled(
