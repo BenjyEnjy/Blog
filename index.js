@@ -52,16 +52,13 @@ async function retrieveAllBlogPosts() {
       )
     );
 
-    blogPosts = blogPosts.concat(
-      results.filter((x) => x.status === "fulfilled").map((x) => x.value)
-    );
+    const resultValues = results
+      .filter((x) => x.status === "fulfilled")
+      .map((x) => x.value);
 
-    const firstNotFound = results.find(
-      (x) =>
-        x.status === "rejected" && x.reason.includes("HTTP status code 404")
-    )?.value;
+    blogPosts = blogPosts.concat(resultValues.filter((x) => x));
 
-    if (firstNotFound) {
+    if (resultValues.includes(null)) {
       break;
     }
   }
