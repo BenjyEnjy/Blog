@@ -1,4 +1,4 @@
-const PATH = window.location.hostname === "localhost" ? "" : "/blog";
+const PATH = window.location.hostname.includes("github.io") ? "/blog" : "";
 
 /**
  * Retrieves a single Blog Post.
