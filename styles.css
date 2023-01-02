@@ -114,4 +114,5 @@ header #page-title {
   border: 1px solid #555;
   padding: 0.3em 0.6em;
   font-size: 0.9em;
+  list-style-type: none;
 }
