@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benj.site</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"
+      integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <h1 id="page-title"><a href="/">Benj.site</a></h1>
+      </header>
+      <nav></nav>
+      <main>
+        <div id="blog-post-container">
+          <!-- #blog-post -->
+        </div>
+
+        <!-- Template -->
+        <template id="blog-post">
+          <div class="blog-post">
+            <h2 class="blog-post-title"></h2>
+            <div class="blog-post-metadata">
+              <span class="blog-post-category tag"></span>
+              <ul class="blog-post-tags tags-container">
+                <!-- #blog-post-tag -->
+              </ul>
+              <span class="blog-post-timestamp"></span>
+            </div>
+            <div class="blog-post-content"></div>
+          </div>
+        </template>
+
+        <!-- Template -->
+        <template id="blog-post-tag">
+          <span class="blog-post-tag tag">
+            <span class="blog-post-tag-name"></span>
+          </span>
+        </template>
+      </main>
+    </div>
+    <script>
+      (async () => {
+        const params = new URLSearchParams(window.location.search);
+
+        const idParam = params.get("id");
+
+        if (!idParam) {
+          throw new Error(`No 'id' parameter found`);
+        }
+
+        const [id] = idParam.split("-")[0];
+
+        // Retrieve the Blog Post
+        const [blogPostMetadata, blogPostContent] = await Promise.all([retrieveBlogPostMetadata(id), retrieveBlogPostContent(id)]);
+
+        // Add Blog Post to the page
+        appendBlogPostElement({ ...blogPostMetadata, content: blogPostContent });
+
+        document.title = `${blogPostMetadata.title || "(Untitled)"} | ${document.title}`;
+      })();
+    </script>
+  </body>
+</html>
